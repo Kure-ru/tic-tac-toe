@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Josefin+Sans&display=swap');
+
+:root{
+    --light-blue: #e0f2fe;
+    --medium-blue: #7dd3fc;
+    --dark-blue: #075985;
+    --light-pink: #fbcfe8;
+    --dark-pink: #be185d;
+    --light-teal: #99f6e4;
+    --dark-teal: #0d9488;
+    --heading-font: 'Amatic SC', cursive;
+    --paragraph-font: 'Josefin Sans', sans-serif;
+}
+
+/* **LAYOUT** */
+body {
+    background: var(--light-blue);
+}
+
+/* DISPLAY  */
+
+/* BACKGROUND */
+
+/* TYPOGRAPHY */
+h1 {
+    font-size: 4rem;
+    font-family: var(--heading-font);
+    color: var(--dark-blue);
+    padding: 20px;
+}
+
+/* BOARD */
+.container{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container__header{
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    width: 332px;
+    padding: 10px 0;
+}
+
+.container__board{
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    grid-template-rows: repeat(3, minmax(100px, 1fr));
+    gap: 1rem;
+}
+
+.cell{
+    background: white;
+
+}
+
+.scoreboard__cell, .cell {
+    box-shadow: inset -15px -15px 5px 0px rgba(161, 202, 229, 0.05);
+    border-radius: 15px;
+}
+
+/* SCORE BOARD */
+
+.scoreboard{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    grid-template-rows: minmax(70px, 1fr);
+    gap: 1rem;
+}
+
+.scoreboard__cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.xScore{
+    background: #fbcfe8;
+}
+
+.oScore{
+    background: var(--light-teal);
+}
+
+.ties{
+    background: var(--medium-blue);
+}

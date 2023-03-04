@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <main class="container"> 
+        <h1>Tic Tac Toe</h1>
+        <div class="container__header header">
+            <img src="https://placekitten.com/20/20" alt="" srcset="">
+            <img src="https://placekitten.com/20/20" alt="" srcset="">
+            <p> X turn</p>
+            <img src="https://placekitten.com/20/20" alt="" srcset="">
+        </div>
+        <div class="container__board board">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="scoreboard">
+            <div class=" scoreboard__cell xScore">
+                <span>X (you)</span>
+                <span>14</span>
+            </div>
+            <div class=" scoreboard__cell ties">
+                <span>Ties</span>
+                <span>32</span>
+            </div>
+            <div class=" scoreboard__cell oScore">
+                <span>O (CPU)</span>
+                <span>11</span>
+            </div>
+        </div>
+    </main>
+    
+    <script type="module" src="./scripts/app.js"></script>
+</body>
+</html>
