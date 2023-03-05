@@ -9,13 +9,17 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
+    <div id="messageBox">
+            <span id="messageWinner">The Winner is...</span>
+            <h2 id="playerName"></h2>
+            <button id="nextTurnBtn">next round</button>
+    </div>
     <main class="container"> 
         <h1>Tic Tac Toe</h1>
         <div class="container__header header">
-            <img src="https://placekitten.com/20/20" alt="" srcset="">
-            <img src="https://placekitten.com/20/20" alt="" srcset="">
-            <p> X turn</p>
-            <img src="https://placekitten.com/20/20" alt="" srcset="">
+            <span class="header__decoration">XO</span>
+            <p id="turnDisplay">X turn</p>
+            <img id="reset_btn" src="images/reset.svg" alt="reset button" srcset="">
         </div>
         <div class="container__board board">
             <div id="0" class="cell empty"></div>
@@ -30,16 +34,16 @@
         </div>
         <div class="scoreboard">
             <div class=" scoreboard__cell xScore">
-                <span>X (you)</span>
-                <span>14</span>
+                <span><strong>X (YOU)</strong></span>
+                <span id="xScore">0</span>
             </div>
             <div class=" scoreboard__cell ties">
-                <span>Ties</span>
-                <span>32</span>
+                <span> <strong>TIES</strong></span>
+                <span id="tieScore">0</span>
             </div>
             <div class=" scoreboard__cell oScore">
-                <span>O (CPU)</span>
-                <span>11</span>
+                <span><strong>O (CPU)</strong></span>
+                <span id="oScore">0</span>
             </div>
         </div>
     </main>

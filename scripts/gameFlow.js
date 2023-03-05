@@ -1,24 +1,33 @@
+import { displayScore, displayTurn, displayWinner } from "./gameboard.js"
+import { boardArray } from "./gameboard.js"
+import { game } from "./gameState.js"
+import { player1, player2 } from "./player.js"
+
 let turn = 0
 
-const startGame = (player1, player2) => {
+const startGame = () => {
     turn = 0
-    player1.score = 0
-    player2.score = 0
 }
 
 const endGame = (condition) => {
     switch (condition) {
         case 'tie' :
-            alert('its a tie')
+            displayWinner('tie')
             resetGame()
+            game.ties++
+            displayScore('tie', game.ties)
             break
         case 'X wins' :
-            alert('Player 1 wins')
+            displayWinner(player1.name)
             resetGame()
+            player1.score++
+            displayScore('X', player1.score)
             break
         case 'O wins':
-            alert('Player 2 wins')
+            displayWinner(player2.name)
             resetGame()
+            player2.score++
+            displayScore('O', player2.score)
             break
     }
 }
@@ -30,10 +39,12 @@ const playRound = (cell) => {
     }
     if (turn % 2 !== 0){
         cell.innerHTML = 'X'
+        displayTurn('X')
         return 'X'
     }
     else {
         cell.innerHTML = 'O'
+        displayTurn('O')
         return 'O'
     }
 }
@@ -44,8 +55,20 @@ const addTurn = () => {
 
 
 const resetGame = () => {
-    window.location.reload();
+    turn = 0
+    //clean the board array
+    for (let i = 0; i < boardArray.length; i++) {
+        delete boardArray[i]
+    }
+    //clean the cells
+    const cells = document.querySelectorAll('.cell')
+    cells.forEach(cell => {
+        cell.classList.add('empty')
+        cell.classList.remove('X')
+        cell.classList.remove('O')
+        cell.innerHTML = ''
+    });
 }
 
 
-export { playRound, startGame, endGame }
+export { playRound, startGame, endGame, resetGame }
