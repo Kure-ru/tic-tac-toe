@@ -1,7 +1,8 @@
 export default class Player {
-    constructor() {
+    constructor(name, symbol, score) {
         this.name = name;
         this.symbol = symbol,
-        this.score = score
+        this.score = score,
+        this.cells = []
     }
 }

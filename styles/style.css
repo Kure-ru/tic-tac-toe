@@ -57,7 +57,22 @@ h1 {
 
 .cell{
     background: white;
+    font-family: var(--heading-font);
+    font-size: 5rem;
+    text-align: center;
+    padding-top: 5px;
+    cursor: pointer;
 
+}
+
+.X {
+    color: var(--dark-teal);
+    background: var(--light-teal);
+}
+
+.O {
+    color: var(--dark-pink);
+    background: var(--light-pink);
 }
 
 .scoreboard__cell, .cell {
@@ -82,13 +97,16 @@ h1 {
 }
 
 .xScore{
-    background: #fbcfe8;
+    background: white;
+    border: 6px solid var(--light-pink);
 }
 
 .oScore{
-    background: var(--light-teal);
+    background: white;
+    border: 6px solid var(--light-teal);
 }
 
 .ties{
-    background: var(--medium-blue);
+    background: white;
+    border: 6px solid var(--medium-blue);
 }
