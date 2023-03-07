@@ -11,3 +11,4 @@ const player1 = new Player('player 1', 'X', 0)
 const player2 = new Player('player 2', 'O', 0)
 
 export {player1, player2}
+

@@ -1,11 +1,10 @@
-//gameboard
 import { boardArray } from "./gameboard.js";
-import { playRound, startGame, endGame, resetGame } from "./gameFlow.js";
+import { playRound, endGame, resetGame } from "./gameFlow.js";
 import { game } from "./gameState.js";
-
 
 //event listener 
 document.addEventListener('click', event => {
+   
     const isCell = event.target.classList.contains('cell')
     const isEmpty = event.target.classList.contains('empty')
 
@@ -16,15 +15,19 @@ document.addEventListener('click', event => {
         boardArray[event.target.id] = symbol
         checkWin()
     }
+
+    //check for draws
+    let emptyCell = document.querySelectorAll('.empty').length
+    if (emptyCell === 0){
+        console.log('tie')
+        endGame('tie')
+    }
 })
 
 //reset button
 document.querySelector('#reset_btn').addEventListener('click', function(){
     resetGame()
 })
-
-startGame();
-
 
 const checkWin = () => {
 game.winningStates.map((winningState) => {

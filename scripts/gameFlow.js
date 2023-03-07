@@ -3,59 +3,53 @@ import { boardArray } from "./gameboard.js"
 import { game } from "./gameState.js"
 import { player1, player2 } from "./player.js"
 
-let turn = 0
-
-const startGame = () => {
-    turn = 0
-}
-
 const endGame = (condition) => {
+    console.log(condition)
     switch (condition) {
-        case 'tie' :
-            displayWinner('tie')
-            resetGame()
-            game.ties++
-            displayScore('tie', game.ties)
-            break
         case 'X wins' :
             displayWinner(player1.name)
             resetGame()
             player1.score++
             displayScore('X', player1.score)
-            break
+            break;
         case 'O wins':
             displayWinner(player2.name)
             resetGame()
             player2.score++
             displayScore('O', player2.score)
-            break
+            break;
+        default :
+            displayWinner('tie')
+            resetGame()
+            game.ties++
+            displayScore('tie', game.ties)
+            break;
     }
 }
 
 const playRound = (cell) => {
-    addTurn()
-    if(turn === 9) {
-        endGame('tie')
-    }
-    if (turn % 2 !== 0){
+    if (game.xTurn){
         cell.innerHTML = 'X'
         displayTurn('X')
+        toggleTurn()
         return 'X'
     }
     else {
         cell.innerHTML = 'O'
         displayTurn('O')
+        toggleTurn()
         return 'O'
     }
 }
 
-const addTurn = () => {
-    turn++;
+const toggleTurn = () => {
+    game.xTurn = game.xTurn === true ? false : true
 }
 
-
 const resetGame = () => {
-    turn = 0
+    //reset turn to X
+    game.xTurn = true
+    displayTurn('reset')
     //clean the board array
     for (let i = 0; i < boardArray.length; i++) {
         delete boardArray[i]
@@ -71,4 +65,4 @@ const resetGame = () => {
 }
 
 
-export { playRound, startGame, endGame, resetGame }
+export { playRound, endGame, resetGame }

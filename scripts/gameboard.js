@@ -1,6 +1,7 @@
 const boardArray = new Array(9);
 
 const displayTurn = (currentPlayer) => {
+    console.log(currentPlayer)
     const display = document.querySelector('#turnDisplay')
     if(currentPlayer === 'X') {
         display.innerHTML = 'O turn'
@@ -28,7 +29,9 @@ const messageBox = document.querySelector('#messageBox')
 const playerName = document.querySelector('#playerName')
 const messageWinner = document.querySelector('#messageWinner')
 const nextTurnBtn = document.querySelector('#nextTurnBtn')
-console.log(winner)
+
+nextTurnBtn.addEventListener('click', function() {clearMessageBox()})
+
 messageBox.style.display = 'block'
 if (winner == 'tie'){
     playerName.innerHTML = "It's a tie!"
@@ -36,8 +39,6 @@ if (winner == 'tie'){
 } else {
     playerName.innerHTML = winner
 }
-
-nextTurnBtn.addEventListener('click', function() {clearMessageBox()})
 }
 
 const clearMessageBox = () => {
